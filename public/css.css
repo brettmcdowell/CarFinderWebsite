@@ -1,0 +1,517 @@
+/* The sidebar menu */
+/* https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: rgb(255 255 255 / 25%); /* Transparent Background*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  }
+  
+  /* The sidebar links */
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(53, 73, 115);
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidebar a:hover {
+    color:rgb(80, 130, 238)
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* The button used to open the sidebar */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(53 73 115 / 25%);
+    color: rgb(53, 73, 115);
+    padding: 5px 10px;
+    border: none;
+  }
+  /* What happens when you hover over the open button */
+  .openbtn:hover {
+    background-color: rgb(6 85 254 / 25%);
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 15px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+/* https://codepen.io/Wendy-Ho/pen/MWWBvmd */
+/* CSS styling for the tabs element taken directly from codepen.io */
+
+  h2{
+    color:#000;
+    text-align:center;
+    font-size:2em;
+  }
+  .warpper{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab{
+    cursor: pointer;
+    padding:10px 20px;
+    margin:0px 2px;
+    background:rgb(255 255 255 / 25%);
+    display:inline-block;
+    color:#fff;
+    border-radius:3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+  }
+  .panels{
+    background:#fffffff6;
+    box-shadow: 0 2rem 2rem #00000080;
+    min-height:200px;
+    width:100%;
+    max-width:700px;
+    border-radius:3px;
+    overflow:hidden;
+    padding:20px;  
+  }
+  .panel{
+    display:none;
+    animation: fadein .8s;
+  }
+  @keyframes fadein {
+      from {
+          opacity:0;
+      }
+      to {
+          opacity:1;
+      }
+  }
+  .panel-title{
+    font-size:1.5em;
+    font-weight:bold;
+    text-align: center;
+  }
+  .radio{
+    display:none;
+  }
+
+  #one:checked ~ .panels #one-panel,
+  #two:checked ~ .panels #two-panel,
+  #three:checked ~ .panels #three-panel,
+  #four:checked ~ .panels #four-panel{
+    display:block
+  }
+  #one:checked ~ .tabs #one-tab,
+  #two:checked ~ .tabs #two-tab,
+  #three:checked ~ .tabs #three-tab,
+  #four:checked ~ .tabs #four-tab{
+    background:#fffffff6;
+    color:#000;
+    border-top: 3px solid #000;
+  }
+
+  #oneb:checked ~ .panels #oneb-panel,
+  #twob:checked ~ .panels #twob-panel,
+  #threeb:checked ~ .panels #threeb-panel,
+  #fourb:checked ~ .panels #fourb-panel{
+    display:block
+  }
+  #oneb:checked ~ .tabs #oneb-tab,
+  #twob:checked ~ .tabs #twob-tab,
+  #threeb:checked ~ .tabs #threeb-tab,
+  #fourb:checked ~ .tabs #fourb-tab{
+    background:#fffffff6;
+    color:#000;
+    border-top: 3px solid #000;
+  }
+
+  #onec:checked ~ .panels #onec-panel,
+  #twoc:checked ~ .panels #twoc-panel,
+  #threec:checked ~ .panels #threec-panel{
+    display:block
+  }
+  #onec:checked ~ .tabs #onec-tab,
+  #twoc:checked ~ .tabs #twoc-tab,
+  #threec:checked ~ .tabs #threec-tab{
+    background:#fffffff6;
+    color:#000;
+    border-top: 3px solid #000;
+  }
+
+/* https://codepen.io/baarbaracrr/pen/KKovmGb */
+/* CSS styling that allows wavy background to be produced */
+
+  body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgb(178, 198, 240) 3%, rgb(169, 169, 241) 68%, rgb(195, 160, 217) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(1);
+    }
+}
+
+/* Class of text for main CyberEdu logo on landing page as it is unlike any other text on website and as such cannot be reused */
+
+.manyCars{
+    color:rgb(53, 73, 115);
+    margin-top: 15%;
+    text-align:center;
+    font-size:650%;
+}
+
+/* Text class for the text above the main sections, i.e. Data, Malware etc. */
+.mainSections{
+    color:rgb(53, 73, 115);
+    margin-top: 25%;
+    text-align:center;
+    font-size:400%;
+    font-style:italic;
+}
+/* General text that is present throughout the website and is not the same styling as the two previous text styles */
+.generalText{
+    color:rgb(53, 73, 115);
+    margin-top:5px;
+    text-align:center;
+    font-size:150%;
+    margin-left: 10%;
+    margin-right:10%;
+}
+
+.generalTextForm{
+  color:rgb(53, 73, 115);
+  margin-top:5px;
+  text-align:center;
+  font-size:110%;
+  margin-left: 10%;
+  margin-right:10%;
+}
+
+/* https://www.freecodecamp.org/news/css-only-back-to-top-button/ */
+/* CSS styling for back to top button and ensuring it stays in a fixed position on the screen */
+.top {
+  place-self:end;
+  position:sticky;
+  bottom:20px;
+  margin-right:20px;
+  margin-top:100vh;
+  margin-left:1%;
+    
+    /* visual styling */
+    text-decoration: none;
+    padding: 10px;
+    font-family: sans-serif;
+    color: rgb(53, 73, 115);
+    background: rgb(53 73 115 / 25%);
+    border-radius: 100px;
+    white-space:nowrap;
+  }
+
+/* https://www.youtube.com/watch?v=9YffrCViTVk */
+/* YouTube video that I used to style the iframe containers as seen below */
+  .iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  .iframe-container iframe{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/* https://www.w3schools.com/howto/howto_css_form_icon.asp */
+
+.input-container{
+  display:flex;
+  width:100%;
+  margin-bottom:25px;
+}
+
+.icon{
+  padding:10px;
+  background: rgb(255 255 255 / 25%);
+  color:white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field{
+  width:100%;
+  padding:10px;
+  outline:none;
+}
+
+.input-field:focus{
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.btn{
+  background-color: rgb(53 73 115 / 25%);
+  color:white;
+  padding:15px 20px;
+  border:none;
+  cursor:pointer;
+  width:100%;
+  opacity: 1;
+}
+
+#visSVGWidth{
+  width: 100%;
+}
+
+#visSVGHeight{
+  height: 100%;
+}
+
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+/* Required for the user giving a slider score scale within User Feedback section */
+
+.slidecontainer {
+  width: 100%;
+  margin-bottom:5%;
+}
+
+.selectioncontainer {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.slider {
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 100%; 
+  height: 25px; /* Specified height */
+  background:rgb(255 255 255 / 25%); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fcfcfc; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #000000; /* Green background */
+  cursor: 
+  pointer; /* Cursor on hover */
+}
+
+/* https://www.youtube.com/watch?v=iS1wc4tlThA */
+.tabText{
+  text-align:center;
+}
+
+a#scroll-btn {
+  position: absolute;
+  height: 10em;
+  width: 6.25em;
+  border: 0.5em solid rgb(53, 73, 115);
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 6.25em;
+  border-radius: 3em;
+}
+a#scroll-btn:before {
+  position: absolute;
+  content: "";
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 1.2em;
+  height: 1.2em;
+  width: 1.2em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: move-down 2s infinite;
+}
+@keyframes move-down {
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(5.3em);
+    opacity: 0;
+  }
+}
+a#scroll-btn:after {
+  position: absolute;
+  content: "SCROLL DOWN TO FIND YOUR PERFECT CAR";
+  width: 18em;
+  display: block;
+  text-align: center;
+  left: -6.7em;
+  bottom: -6.0em;
+  font-size: 1.2em;
+  color: rgb(53, 73, 115);
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 500px) {
+  a#scroll-btn {
+    font-size: 12px;
+  }
+}
+
+section {
+  height: 40vh;
+  position: relative;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: rgb(53 73 115 / 25%);
+  border: 2px solid rgba(255, 255, 255, 0);
+  color:rgb(255, 255, 255);
+  margin-left: 17%;
+  border-radius: 15px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.responsive {
+  height: auto;
+  margin-top: 4%;
+  margin-left: 42.5%;
+}
+
+.CarBox {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  padding: 2em;
+  position: relative;
+  width: 40%;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.20);
+  transition: transform 300ms, box-shadow 300ms;
+  margin-bottom: 5%;
+}
+
+.CarBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 70px 0 rgba(0, 0, 0, 0.20);
+  margin-bottom: 5%;
+}
+
+.carText {
+  color:rgb(53, 73, 115);
+  margin-top:5px;
+  text-align:center;
+  font-size:150%;
+}
+
+.carTextHeader {
+  color:rgb(53, 73, 115);
+  margin-top:5px;
+  text-align:center;
+  font-size:250%;
+  font-style:italic;
+}
+
+.carImages {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
+  

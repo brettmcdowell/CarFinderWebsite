@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Documentation</title>
+  </head>
+  <body>
+    <h1>API Documentation</h1>
+    
+    <h2>Overview</h2>
+    <p>Website takes user input via form and searches a JSON file for corresponding details and produces an output for cars that match criteria</p>
+    
+    <h2>Requests</h2>
+    <ul>
+      <li>
+        <h3>GET request /data</h3>
+        <p>Description: This request method gets the data.json file and returns it for manipulation within a different client-side method</p>
+        <pre>
+          <code>
+            // Example request
+            127.0.0.1/data
+
+            // Example code
+            app.get('/data', (req, res) => {
+                const data = require('./data.json');
+                res.json(data);
+              });
+            
+            // Example response
+            200 OK
+            Content-Type: data/json
+            
+            * Returns entire json file *
+            [
+     {
+          "Price": 200000,
+          "Doors": 3,
+          "TopSpeed": 195,
+          "MPG": 19,
+          "CarName": "Aston Martin DB11"
+     },
+     {
+          "Price": 250000,
+          "Doors": 3,
+          "TopSpeed": 198,
+          "MPG": 17,
+          "CarName": "Aston Martin DBS"
+     },
+     {
+        ....*Deleted rest of data for concise imagery*....
+     }
+]
+          </code>
+        </pre>
+      </li>
+      
+      <li>
+        <h3>POST request /submit</h3>
+        <p>Description: This method takes the data from the first form and then reads in the data.json file to allow for manipulation of it based on the input of the first form. Essentially it takes the data.json file and filters it based on the inputs and then returns this back to the client-side javascript for manipulation.</p>
+        <pre>
+          <code>
+            // Example Request
+            127.0.0.1/submit
+
+            // Example Code
+            app.post('/submit', (req, res) => {
+                const data = req.body.data;
+                const data2 = req.body.data2;
+                const data3 = req.body.data3;
+                const data4 = req.body.data4;
+                const data5 = req.body.data5;
+                fs.readFile('./public/data.json', (err, fileData) => {
+                  if (err) {
+                    console.error(err);
+                  } else {
+                    let dataArray = JSON.parse(fileData);
+                    const newData = {
+                      Price: parseInt(data3),
+                      Doors: parseInt(data2),
+                      TopSpeed: parseInt(data4),
+                      MPG: parseInt(data5),
+                      CarName: data
+                    };
+                    dataArray.push(newData);
+                    fs.writeFile('./public/data.json', JSON.stringify(dataArray, (key, value) => {
+                      if (typeof value === "object" && value !== null) {
+                        return value;
+                      }
+                      return value;
+                    }, 5), (err) => {
+                      if (err) {
+                        console.error(err);
+                      } else {
+                        // console.log('Data written to file');
+                        res.send({ message: 'Data written to file' });
+                      }
+                    });
+                  }
+                });
+              });
+            
+            // Example response
+            HTTP/1.1 200 OK
+            
+            'Data written to file' & Data successfully passed to client-side for manipulation
+          </code>
+        </pre>
+      </li>
+      
+      <li>
+        <h3>GET request /upload</h3>
+        <p>Description: This is a GET method that renders the image that is uploaded by the user</p>
+        <pre>  
+            <code>
+            // Example Request 
+            127.0.0.1/upload
+
+            // Example Code
+            app.get('/upload', (req, res) => {
+                res.render("upload");
+              });
+
+            // Example response
+            HTTP/1.1 200 OK
+            * Image successfully rendered *
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h3>GET request /upload</h3>
+        <p>Description: This is a POST method that helps upload the image passed in by the user to the Images folder/p>
+        <pre>  
+            <code>
+            // Example Request 
+            127.0.0.1/upload
+
+            // Example Code
+            app.post('/upload', upload.single('file'), (req, res) => {
+                res.json({ message: 'File uploaded successfully.' });
+            });
+            
+            // Example response
+            HTTP/1.1 200 OK
+            ' Files uploaded successfully ' & Image uploaded successfully to Images folder
+          </code>
+        </pre>
+      </li>
+    </ul>
+  </body>
+</html>

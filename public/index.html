@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--https://www.w3schools.com/html/html_favicon.asp-->
+    <link rel="icon" type="image/x-icon" href="Images/favicon2.ico">
+    <!--https://getbootstrap.com/docs/5.2/getting-started/introduction/-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!--https://getbootstrap.com/docs/5.2/getting-started/introduction/-->
+    <link href = "css.css" rel="stylesheet">
+    <title>ManyCars</title>
+</head>
+<body>
+<!-- https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp -->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#ManyCars">Mission Statement</a>
+  <a href="#submitForm">Finding a Car</a>
+  <a href="#submitForm2">Adding a Car</a>
+</div>
+
+<!-- https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp -->
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776;</button>
+  <h1 id="ManyCars" class="manyCars">ManyCars</h1>
+  <p class="generalText">Our website will match you with a car that meets your specific needs</p>
+  <!-- https://www.youtube.com/watch?v=iS1wc4tlThA -->
+  <section id="section-1">
+    <a id="scroll-btn" href="#ManyCars"></a>
+  </section>
+</div>
+
+<p id="perfectCar" class="mainSections">What's your perfect car?</p>
+<!-- https://www.w3schools.com/howto/howto_css_form_icon.asp -->
+<div class="warpper">
+  <form id="submitForm">
+    <!-- https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+    <div class="slidecontainer">
+      <p class="generalTextForm">Max. Price: £<span id="demo"></span></p>
+      <input type="range" min="30000" max="4000000" value="10000" class="slider" id="userRange" required>
+    </div>
+    <br><p class="generalTextForm">Amount of Doors:<span id="demo"></span></p>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="doorsValue" required>
+      <option selected value=3>3</option>
+      <option value=5>5</option>
+    </select>
+    <br><p class="generalTextForm">Min. Top Speed:<span id="demo"></span></p>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="topspeedValue" required>
+      <option selected value=100>100 MPH</option>
+      <option value=120>120 MPH</option>
+      <option value=140>140 MPH</option>
+      <option value=160>160 MPH</option>
+      <option value=180>180 MPH</option>
+      <option value=190>190 MPH</option>
+      <option value=200>200 MPH</option>
+    </select>
+    <br><p class="generalTextForm">Min. MPG:<span id="demo"></span></p>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="MPGValue" required>
+      <option selected value=5>5 MPG</option>
+      <option value=10>10 MPG</option>
+      <option value=20>20 MPG</option>
+      <option value=30>30 MPG</option>
+      <option value=40>40 MPG</option>
+      <option value=50>50 MPG</option>
+      <option value=60>60 MPG</option>
+    </select>
+    <!-- <br><br><button type="submit" id="submitButton" class="btn" onclick="filterData()">Submit</button> -->
+    <br><br><button type="submit" id="submitButton" class="btn">Submit</button>
+  </form>
+</div>
+
+<div id="OutputDiv" class="warpper"></div>
+
+<p id="userFeedback2" class="mainSections">Couldn't find your dream car?</p>
+<p class="generalText">Please fill out the form below if you were looking for a specific car and it wasn't present</p><br>
+<div class="warpper">
+    <form id="submitForm2" enctype="multipart/form-data">
+      <div class="slidecontainer">
+        <p class="generalTextForm">Price: £<span id="demo2"></span></p>
+        <input type="range" min="10000" max="4000000" value="10000" class="slider" id="userRange2" name="userRange2" required>
+      </div>
+      <p class="generalTextForm">Car Name:<span id="demo2"></span></p>
+      <input type="text" id="carName" name="carName" required><br>
+      <br><p class="generalTextForm">Amount of Doors:<span id="demo2"></span></p>
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="doorsValue2" name="doorsValue2" required>
+        <option disabled>Select</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+      </select>
+      <br><p class="generalTextForm">Top Speed in MPH:<span id="demo2"></span></p>
+      <input type="number" id="topSpeed2" name="topSpeed2" required><br>
+      <br><p class="generalTextForm">Average MPG:<span id="demo2"></span></p>
+      <input type="number" id="averageMPG2" name="averageMPG2" required><br>
+      <br><p class="generalTextForm">Upload image of car:<span id="demo2"></span></p>
+      <label class="custom-file-upload">
+        <input type="file" id="file" name="file" required>
+        <i class="fa fa-cloud-upload"></i> Car Image
+      </label>
+      <br><br><button type="submit" class="btn">Submit</button><br><br>
+      <div id="carUploadResult"></div>
+    </form>
+  </div>
+
+  <div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
+  <a href="#" class="top">&#8593;</a> 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://use.fontawesome.com/1368461d93.js"></script>
+
+    <script src="client.js"></script>
+  </body>
+</html>
