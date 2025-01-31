@@ -12,7 +12,7 @@ How to execute code:
 2) Change directory in terminal to new unzipped folder
 3) Run "npm install" within terminal
 4) Run "npm start" within terminal
-5) Visit "http://127.0.01.8080/index.html" within browser
+5) Visit "http://127.0.01:8080/" within browser
 
 API Documentations:
 -------------------
